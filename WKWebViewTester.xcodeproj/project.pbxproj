@@ -15,6 +15,8 @@
 		AAEA3BCD1BE268FF003F5587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAEA3BCB1BE268FF003F5587 /* LaunchScreen.storyboard */; };
 		AAEA3BD81BE268FF003F5587 /* WKWebViewTesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEA3BD71BE268FF003F5587 /* WKWebViewTesterTests.m */; };
 		AAEA3BE31BE268FF003F5587 /* WKWebViewTesterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEA3BE21BE268FF003F5587 /* WKWebViewTesterUITests.m */; };
+		AAEA3BF11BE26987003F5587 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEA3BF01BE26987003F5587 /* WebKit.framework */; };
+		AAEA3BF31BE26EA9003F5587 /* www in Resources */ = {isa = PBXBuildFile; fileRef = AAEA3BF21BE26EA9003F5587 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		AAEA3BDE1BE268FF003F5587 /* WKWebViewTesterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WKWebViewTesterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEA3BE21BE268FF003F5587 /* WKWebViewTesterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewTesterUITests.m; sourceTree = "<group>"; };
 		AAEA3BE41BE268FF003F5587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAEA3BF01BE26987003F5587 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		AAEA3BF21BE26EA9003F5587 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEA3BF11BE26987003F5587 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 		AAEA3BB11BE268FF003F5587 = {
 			isa = PBXGroup;
 			children = (
+				AAEA3BF01BE26987003F5587 /* WebKit.framework */,
 				AAEA3BBC1BE268FF003F5587 /* WKWebViewTester */,
 				AAEA3BD61BE268FF003F5587 /* WKWebViewTesterTests */,
 				AAEA3BE11BE268FF003F5587 /* WKWebViewTesterUITests */,
@@ -101,6 +107,7 @@
 		AAEA3BBC1BE268FF003F5587 /* WKWebViewTester */ = {
 			isa = PBXGroup;
 			children = (
+				AAEA3BF21BE26EA9003F5587 /* www */,
 				AAEA3BC01BE268FF003F5587 /* AppDelegate.h */,
 				AAEA3BC11BE268FF003F5587 /* AppDelegate.m */,
 				AAEA3BC31BE268FF003F5587 /* ViewController.h */,
@@ -243,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEA3BF31BE26EA9003F5587 /* www in Resources */,
 				AAEA3BCD1BE268FF003F5587 /* LaunchScreen.storyboard in Resources */,
 				AAEA3BCA1BE268FF003F5587 /* Assets.xcassets in Resources */,
 				AAEA3BC81BE268FF003F5587 /* Main.storyboard in Resources */,

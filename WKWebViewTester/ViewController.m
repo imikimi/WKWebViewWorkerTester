@@ -7,21 +7,48 @@
 //
 
 #import "ViewController.h"
+#import <WebKit/WebKit.h>
+
 
 @interface ViewController ()
+@property (nonatomic, strong, readwrite) UIView* engineWebView;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (NSString*)pathForResource:(NSString*)resourcepath
+{
+    NSBundle* mainBundle = [NSBundle mainBundle];
+    NSString* directoryStr = @"www";
+
+    return [mainBundle pathForResource:resourcepath ofType:@"" inDirectory:directoryStr];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSURL*)appUrl
+{
+    NSString* startPage = @"index.html";
+    NSString* startFilePath = [self pathForResource:startPage];
+    
+    NSURL* appURL = [NSURL fileURLWithPath:startFilePath];
+    NSLog(@"appURL: %@", appURL);
+    return appURL;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    WKUserContentController* userContentController = [[WKUserContentController alloc] init];
+    
+    WKWebViewConfiguration* configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.userContentController = userContentController;
+    
+    WKWebView* wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
+    self.engineWebView = wkWebView;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[self appUrl]];
+    [wkWebView loadRequest:request];
+    [self.view addSubview:wkWebView];
 }
 
 @end
