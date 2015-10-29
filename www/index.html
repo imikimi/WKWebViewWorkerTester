@@ -7,16 +7,18 @@
   <script>
   function startWorker() {
     console.log("start worker start.");
-    new Worker("echo_worker.js");
-    console.log("start worker done.");
+    var worker = new Worker("echo_worker.js");
+    console.log("start worker started.");
+    worker.onmessage = function(message){console.log("worker sent: " + message.data);}
+    worker.postMessage('Test');
   }
 
   function loadWorkerSource() {
     console.log("loadWorkerSource start");
     var request = new XMLHttpRequest;
     request.open("GET", "echo_worker.js", true);
-    request.onload = function() {
-      return console.log("XMLHttpRequest success", arguments);
+    request.onload = function(e) {
+      return console.log("XMLHttpRequest success", arguments, e.response);
     };
     request.onerror = function() {
       return console.log("XMLHttpRequest failure", arguments);
