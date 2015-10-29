@@ -6,12 +6,28 @@
   </head>
   <script>
   function startWorker() {
-    console.log("start worker");
+    console.log("start worker start.");
     new Worker("echo_worker.js");
+    console.log("start worker done.");
   }
+
+  function loadWorkerSource() {
+    console.log("loadWorkerSource start");
+    var request = new XMLHttpRequest;
+    request.open("GET", "echo_worker.js", true);
+    request.onload = function() {
+      return console.log("XMLHttpRequest success", arguments);
+    };
+    request.onerror = function() {
+      return console.log("XMLHttpRequest failure", arguments);
+    };
+    request.send();
+    console.log("loadWorkerSource done");
+  };
   </script>
   <body>
     Hello world.
     <input type="button" value="start worker" onclick="startWorker();">
+    <input type="button" value="load worker js using XMLHttpRequest" onclick="loadWorkerSource();">
   </body>
 </HTML>
